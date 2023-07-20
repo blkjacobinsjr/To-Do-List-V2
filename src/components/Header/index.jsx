@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 
 // Importing an SVG logo from the assets directory.
-import todoLogo from '../../assets/todoLogo.svg';
+
 
 // import react fonts
 import { AiOutlinePlus } from 'react-icons/ai';
@@ -57,9 +57,9 @@ const GreetingComponent = () => {
     <div>
       <div id="#time">{time}</div>
       <div id="greeting">{greeting}</div>
-      <input 
+      <input
         type="text"
-        id="name-input" 
+        id="name-input"
         placeholder="What's your name?"
         value={name}
         onChange={(event) => setName(event.target.value)} // Update 'name' state when input changes.
@@ -80,33 +80,32 @@ const GreetingComponent = () => {
 
 // Defining a functional component named Header.
 export function Header({ onAddTask }) {
-    const [title, setTitle] = useState('');
-    
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        onAddTask(title);
-        setTitle('');
-      }
-    
+  const [title, setTitle] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onAddTask(title);
+    setTitle('');
+  }
+
 
   // Render header with logo and GreetingComponent.
   return (
     <header className={styles.header}>
-      <img src={todoLogo} alt="logo" />
       <GreetingComponent />
 
       <form onSubmit={handleSubmit} className={styles.newTaskForm}>
-      <input 
-          type="text" 
-          id="input-box" 
-          placeholder="Add your task" 
+        <input
+          type="text"
+          id="input-box"
+          placeholder="Add your task"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <button id="add-button" type="submit">
-            Add
-            <AiOutlinePlus size={12}/>
-        </button>     
+          Add
+          <AiOutlinePlus size={12} />
+        </button>
       </form>
     </header>
   )
