@@ -44,7 +44,7 @@
     border-color: transparent;
     color: #ffffff;
     outline: none;
-  padding-bottom: 40%;
+    padding-bottom: 5%;
   }
   
   
@@ -58,9 +58,6 @@
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.677);
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   #input-box:hover,
@@ -69,3 +66,9 @@
     border-radius: 20px;
     padding: 10px 50px;
   }
+
+  #time {
+    color: rgb(255, 255, 255);
+    font-size: 150px;
+    font-weight: bolder;    
+}

@@ -3,17 +3,14 @@
 // useEffect: React hook for performing side effects in functional components.
 import React, { useState, useEffect } from 'react';
 
-// Importing an SVG logo from the assets directory.
-
-
-// import react fonts
+// Import react fonts
 import { AiOutlinePlus } from 'react-icons/ai';
 
 // Importing CSS module styles.
 import styles from './header.module.css';
 
 // Defining a functional component named GreetingComponent.
-const GreetingComponent = () => {
+const GreetingComponent = ({ onSaveName }) => {
   // Initializing state variables with initial value as empty strings.
   const [greeting, setGreeting] = useState('');
   const [time, setTime] = useState('');
@@ -44,42 +41,44 @@ const GreetingComponent = () => {
   }
 
   // useEffect to call getTimeGreeting function every minute and upon component mount.
-  // It also clears the interval upon component unmount.
   useEffect(() => {
     getTimeGreeting(name);
     const intervalId = setInterval(() => getTimeGreeting(name), 60000);
 
     return () => clearInterval(intervalId); // Cleanup function to clear interval.
-  }, [name]); // Dependency array. Effect runs when 'name' changes.
+  }, [name]); // Effect runs when 'name' changes.
 
   // Render greeting, time, and name input field.
   return (
-    <div>
-      <div id="#time">{time}</div>
+    <>
+      <div id="time">{time}</div>
       <div id="greeting">{greeting}</div>
       <input
         type="text"
         id="name-input"
         placeholder="What's your name?"
         value={name}
-        onChange={(event) => setName(event.target.value)} // Update 'name' state when input changes.
+        onChange={(event) => {
+          setName(event.target.value);
+          onSaveName(event.target.value);
+        }}
         onKeyDown={(event) => {
-          // If Enter key is pressed, call getTimeGreeting with input value.
           if (event.key === 'Enter') {
             getTimeGreeting(event.target.value);
+            onSaveName(event.target.value);
           }
         }}
         onBlur={(event) => {
-          // When input field loses focus, call getTimeGreeting with input value.
           getTimeGreeting(event.target.value);
+          onSaveName(event.target.value);
         }}
       />
-    </div>
+    </>
   );
-}
+};
 
 // Defining a functional component named Header.
-export function Header({ onAddTask }) {
+export function Header({ onAddTask, onSaveName }) {
   const [title, setTitle] = useState('');
 
   const handleSubmit = (event) => {
@@ -88,12 +87,10 @@ export function Header({ onAddTask }) {
     setTitle('');
   }
 
-
   // Render header with logo and GreetingComponent.
   return (
     <header className={styles.header}>
-      <GreetingComponent />
-
+      <GreetingComponent onSaveName={onSaveName} />
       <form onSubmit={handleSubmit} className={styles.newTaskForm}>
         <input
           type="text"
@@ -108,5 +105,5 @@ export function Header({ onAddTask }) {
         </button>
       </form>
     </header>
-  )
+  );
 }

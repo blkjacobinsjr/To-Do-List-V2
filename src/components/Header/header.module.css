@@ -1,15 +1,8 @@
 Header {
     display: flex;
+    flex-direction: column; /* Add this line to stack elements vertically */
     align-items: center;
-    color: #ffffff;
+    justify-content: center; /* Add this line to center elements vertically */
     font-size: 40px;
     flex-wrap: wrap;
-    justify-content:center;
-    margin-bottom: 24px;
-    padding-top: 3%;
-}
-
-time {
-    color: #ffffff;
-    font-size: 150px;
 }
