@@ -1,6 +1,7 @@
 import styles from './task.module.css'
 import { TbTrash } from 'react-icons/tb';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { AiOutlineEdit } from 'react-icons/ai'
 
 export function Task({ task, onComplete, onDelete }) {
     return (
@@ -11,6 +12,13 @@ export function Task({ task, onComplete, onDelete }) {
 
             <p className={task.isCompleted ? styles.textCompleted : ""}>{task.title}</p>
 
+            <button className={styles.editButton}
+                onClick={() => {
+                    this.setState({ editing: true })
+                }}
+            >
+                <AiOutlineEdit size={20} />
+            </button>
             <button className={styles.deleteButton} onClick={() => onDelete(task.id)}>
                 <TbTrash size={20} />
             </button>

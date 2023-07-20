@@ -1,6 +1,6 @@
 .task {
   width: 100%;
-  padding: 16px;
+  padding: 0 10px;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -13,6 +13,7 @@
   line-height: 19px;
   color: #F2F2F2;
   margin-right: auto;
+  padding: 10px;
 }
 
 p.textCompleted {
@@ -44,9 +45,26 @@ p.textCompleted {
   background: none;
   border: none;
   color: #ffffff;
+  padding: 0 px;
 }
 
 .deleteButton:hover {
+  background-color: gray;
+  opacity: 70%;
+  width: 28px;
+  height: 28px;
+  border-radius: 30px;
+}
+
+.editButton {
+
+  background: none;
+  border: none;
+  color: #ffffff;
+  padding: 0 px;
+}
+
+.editButton:hover {
   background-color: gray;
   opacity: 70%;
   width: 28px;
