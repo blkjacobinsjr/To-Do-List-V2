@@ -10,13 +10,11 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import styles from './header.module.css';
 
 // Defining a functional component named GreetingComponent.
-const GreetingComponent = ({ onSaveName }) => {
-  // Initializing state variables with initial value as empty strings.
+const GreetingComponent = () => {
   const [greeting, setGreeting] = useState('');
   const [time, setTime] = useState('');
   const [name, setName] = useState('');
 
-  // Function to calculate and set the current time and greeting based on the time of day.
   function getTimeGreeting(name) {
     const now = new Date(); // Get current date and time.
     const hours = now.getHours(); // Get current hours.
