@@ -9,7 +9,7 @@ export function Task({ task, onComplete, onDelete, editTaskTitle }) {
 
     const handleBlur = (e) => {
         let payload = e.target.value
-        if(payload == ""){payload = task.title}
+        if (payload == "") { payload = task.title }
         editTaskTitle(task.id, payload)
         setEditMode(false)
     }
@@ -21,7 +21,7 @@ export function Task({ task, onComplete, onDelete, editTaskTitle }) {
             </button>
 
             <p className={task.isCompleted ? styles.textCompleted : ""}>
-            {!editMode ? task.title : <input onBlur={handleBlur} placeholder={task.title} type="text"></input>}
+                {!editMode ? task.title : <input className={styles.editInputField} onBlur={handleBlur} placeholder={task.title} type="text"></input>}
             </p>
 
             <button className={styles.editButton}

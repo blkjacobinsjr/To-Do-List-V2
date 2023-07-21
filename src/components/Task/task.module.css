@@ -71,3 +71,13 @@ p.textCompleted {
   height: 28px;
   border-radius: 30px;
 }
+
+.editInputField {
+  color: black;
+  background: rgb(219, 219, 219, 0.5);
+
+  border-radius: 20px;
+  padding: 5px 5px;
+  border-color: #009605;
+  border-width: 2px;
+}
