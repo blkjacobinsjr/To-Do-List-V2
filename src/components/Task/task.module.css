@@ -62,22 +62,30 @@ p.textCompleted {
   border: none;
   color: #ffffff;
   padding: 0 px;
+  background: transparent;
+
 }
 
 .editButton:hover {
-  background-color: gray;
   opacity: 70%;
   width: 28px;
   height: 28px;
   border-radius: 30px;
+  background: transparent;
+  outline: none;
 }
 
-.editInputField {
-  color: black;
-  background: rgb(219, 219, 219, 0.5);
 
+
+.editInputField {
+  color: rgb(255, 255, 255);
+  background: transparent;
   border-radius: 20px;
   padding: 5px 5px;
-  border-color: #009605;
-  border-width: 2px;
+  outline: none;
+  border: 2px solid transparent; /* Default style */
+}
+
+.editInputField:focus {
+  border-color: #ffffff; /* Style when in focus */
 }

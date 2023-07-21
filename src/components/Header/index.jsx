@@ -26,11 +26,11 @@ const GreetingComponent = () => {
 
     // Check current time and set appropriate greeting.
     if (hours >= 5 && hours < 12) {
-      greetingString = `Good morning, ${name}.`;
+      greetingString = `Good morning ${name}`;
     } else if (hours >= 12 && hours < 18) {
-      greetingString = `Good afternoon, ${name}.`;
+      greetingString = `Good afternoon ${name}`;
     } else {
-      greetingString = `Good evening, ${name}.`;
+      greetingString = `Good evening ${name}`;
     }
 
     // Update state with new time and greeting strings.
@@ -55,7 +55,7 @@ const GreetingComponent = () => {
         <input
           type="text"
           id="name-input"
-          placeholder="What's your name?"
+          placeholder=""
           value={name}
           onChange={(event) => {
             setName(event.target.value);
