@@ -53,26 +53,28 @@ const GreetingComponent = ({ onSaveName }) => {
     <>
       <div id="time">{time}</div>
       <div id="greeting">{greeting}</div>
-      <input
-        type="text"
-        id="name-input"
-        placeholder="What's your name?"
-        value={name}
-        onChange={(event) => {
-          setName(event.target.value);
-          onSaveName(event.target.value);
-        }}
-        onKeyDown={(event) => {
-          if (event.key === 'Enter') {
+      {/* <form onSubmit={}> */}
+        <input
+          type="text"
+          id="name-input"
+          placeholder="What's your name?"
+          value={name}
+          onChange={(event) => {
+            setName(event.target.value);
+            onSaveName(event.target.value);
+          }}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              getTimeGreeting(event.target.value);
+              onSaveName(event.target.value);
+            }
+          }}
+          onBlur={(event) => {
             getTimeGreeting(event.target.value);
             onSaveName(event.target.value);
-          }
-        }}
-        onBlur={(event) => {
-          getTimeGreeting(event.target.value);
-          onSaveName(event.target.value);
-        }}
-      />
+          }}
+        />
+      {/* </form> */}
     </>
   );
 };
