@@ -36,6 +36,7 @@ function App() {
   }, []);
 
   const [name, setName] = useState("");
+  
   function saveName(newName) {
     setName(newName);
     localStorage.setItem(LOCAL_STORAGE_NAME_KEY, newName);
@@ -76,8 +77,6 @@ function App() {
   }
 
   const editTaskTitle = (id, title) => {
-      console.log(id);
-      console.log(title);
       const payload = tasks.map(element => {
         if(element.id == id){
           return {...element, title:title}
